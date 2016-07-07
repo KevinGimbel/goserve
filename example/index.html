@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>goserve - Example Page</title>
+  <link rel="stylesheet" href="/example/style.css">
+</head>
+<body>
+  <div class="app">
+    <h1 class="title">It works!</h1>
+    <p>Welcome to the <code>goserve</code> example page. If you see this page it means the <code>goserve</code> static file server is up and running.</p>
+
+    <h3>Usage</h3>
+    <p>goserve is a command line app that serves a directory of static files to localhost. By default the <a href="https://golang.org/pkg/net/http/#ServeFile">http.ServeFile</a> go function will serve a index.html file if found.</p>
+    <pre class="code_block">
+      <code>$ goserve -port "1234"</code>
+    </pre>
+    <p>The above example will serve the content to of the current directory to <code>localhost:1234</code></p>
+
+    <p>While goserve is running it prints request headers to the command line.</p>
+    <pre class="code_block">
+  <code>Method GET
+  Host localhost:8000
+  Referer [http://localhost:8000/example]
+  User-Agent: [Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36]</code>
+    </pre>
+    <footer class="meta">
+      <p>Report bugs on <a href="https://github.com/kevingimbel/goserve/issues">Github</a>. &copy; 2016 <a href="http://kevingimbel.com" title="Kevin Gimbel">Kevin Gimbel</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 12px;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(to left, #FFC107, #673AB7);
+}
+
+.code_block pre {
+    background: #E3F2FD;
+    padding: 1rem;
+    overflow: auto;
+    width: 100%;
+}
+
+.app {
+    padding: 2rem;
+    background: #fff;
+    height: 100%;
+    min-height: calc(100vh - 24px);
+}
+
+@media all and (min-width: 75em) {
+    .footer {
+        position: fixed;
+        bottom: .75rem;
+        width: 90%;
+        width: calc(100% - (4rem+ 24px));
+        background: #fff;
+        padding: .5rem;
+    }
+}
+
+.title {
+    font-size: 36px;
+    display: inline-block;
+    color: #FFC107;
+    background: linear-gradient(to right, #FFC107 0%, #673AB7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: .75rem;
+    border: 5px solid #f1f1f1;
+    padding: .5rem;
+}
+
+.title:hover {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    background: linear-gradient(to right, #673AB7 0%, #FFC107 100%);
+}
+
+a {
+    display: inline-block;
+    font-weight: bold;
+    padding: .125rem .25rem;
+    color: #673AB7;
+    background: linear-gradient(to right, #673AB7 0%, #FFC107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 5px solid #f1f1f1;
+}
+
+a:hover {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    background: linear-gradient(to right, #673AB7 0%, #FFC107 100%);
+    border-bottom: 5px solid transparent;
+}
