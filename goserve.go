@@ -7,7 +7,7 @@ import (
   "strings"
 )
 
-// Parameter structure with default port
+// Parameter structure
 type Parameters struct {
   port string
   route string
@@ -38,6 +38,8 @@ func initializeServer(params *Parameters) {
   // Get the port and route from Parameters Objects
   port := params.port
   route := params.route
+
+  fmt.Println("Serving on port", port)
 
   http.HandleFunc(route, handler)
   http.ListenAndServe(port, nil)
