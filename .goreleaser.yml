@@ -1,0 +1,12 @@
+builds:
+  - binary: goserve
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+archive:
+  replacements:
+    amd64: 64-bit
+    darwin: macOS
