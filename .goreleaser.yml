@@ -10,3 +10,10 @@ archive:
   replacements:
     amd64: 64-bit
     darwin: macOS
+ 
+brew:
+  github:
+    owner: kevingimbel
+    name: homebrew-tap
+  homepage: https://github.com/kevingimbel/goserve
+  description: "Simple static file server written in Go"
