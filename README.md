@@ -1,6 +1,8 @@
 # goserve
 > Static file server written in go.
 
+[![Build Status](https://travis-ci.org/kevingimbel/goserve.svg?branch=master)](https://travis-ci.org/kevingimbel/goserve)
+
 ## Installation
 
 ### From archive
@@ -24,9 +26,14 @@ Place the binary somewhere in your `$PATH`, e.g.
 `goserve` can be used from the command line as follows:
 
 ```sh
-  $ goserve [-port ""] [-verbose]
+  $ goserve [-port ""] [-cors ""] [-verbose]
 ```
 This will serve the current directory to `localhost:8000` or the specified port. `-verbose` logs each request to Stdout.
+With `-cors` a `Access-Control-Allow-Origin` header can be set. For local development this can be `*` to allow all connections.
+
+```sh
+  $ goserve -port 8000 -cors "*"
+```
 
 See also `goserve -help`.
 
