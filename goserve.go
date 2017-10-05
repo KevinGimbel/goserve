@@ -13,8 +13,15 @@ type Parameters struct {
 	route string
 }
 
-var port = flag.String("port", ":8000", "Defines the port to serve to.")
-var verbose = flag.Bool("verbose", false, "Turn on verbose logging")
+var (
+	port    = flag.String("port", ":8000", "Defines the port to serve to.")
+	verbose = flag.Bool("verbose", false, "Turn on verbose logging")
+	cors    string
+)
+
+func init() {
+	flag.StringVar(&cors, "cors", "", "Set Access-Control-Allow-Origin Header, e.g. -cors '*'")
+}
 
 // logRequest logs part of the HTTP Request to the
 // command line
@@ -31,6 +38,7 @@ func logRequest(request *http.Request) {
 // handles serving of files through http
 func handler(w http.ResponseWriter, r *http.Request) {
 	route := r.URL.Path[1:]
+	w.Header().Set("Access-Control-Allow-Origin", cors)
 	http.ServeFile(w, r, route)
 	logRequest(r)
 }
