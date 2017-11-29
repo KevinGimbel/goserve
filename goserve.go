@@ -69,7 +69,7 @@ func normalizePort(oldPort string) string {
 	return newPort
 }
 
-// Generate the Parameters Object* from flags
+// Generate the Parameters Object from flags
 func generateParameterObject() *Parameters {
 	// Normalize the port.
 	port := normalizePort(*port)
@@ -86,16 +86,28 @@ func generateParameterObject() *Parameters {
 	return params
 }
 
+func printVersion() {
+	if version == "" {
+		version = "dev"
+	}
+	fmt.Printf("Version: %s\n", version)
+	if buildDate != "" {
+		fmt.Printf("Build Date: %s\n", buildDate)
+	}
+	if commit != "" {
+		fmt.Printf("Commit %[1]s\nhttps://github.com/kevingimbel/goserve/tree/%[1]s", commit)
+	}
+	os.Exit(0)
+}
+
 // initialize the parameters and start the server.
 func main() {
 	// Parse command line flags
 	flag.Parse()
 
+	// If -version is provided output version information
 	if *versionFlag {
-		fmt.Printf("Version: %s\n", version)
-		fmt.Printf("Build Date: %s\n", buildDate)
-		fmt.Printf("Commit %[1]s\nhttps://github.com/kevingimbel/goserve/tree/%[1]s", commit)
-		os.Exit(0)
+		printVersion()
 	}
 
 	params := generateParameterObject()
@@ -104,8 +116,6 @@ func main() {
 
 	go osSignal(errch)
 
-	// fs := http.FileServer(http.Dir("."))
-	// http.Handle("/", fs)
 	http.HandleFunc(params.route, handler)
 
 	go func() {
