@@ -1,5 +1,6 @@
 builds:
   - binary: goserve
+    ldflags: "-X github.com/kevingimbel/goserve/main.version={{.Version}} -X github.com/kevingimbel/goserve/main.buildDate={{.Date}} -X github.com/kevingimbel/goserve/main.commit={{.Commit}}"
     goos:
       - windows
       - darwin
