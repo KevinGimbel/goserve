@@ -1,6 +1,8 @@
 FROM alpine:3.6
 LABEL maintainer="Kevin Gimbel <docker@kevin.codes>"
 
+ENV version "1.2.0"
+
 RUN mkdir -p /var/www/
 WORKDIR /var/www
 
@@ -11,7 +13,7 @@ RUN apk update \
 
 # Install goserve
 RUN mkdir -p /tmp/install/
-RUN wget https://github.com/kevingimbel/goserve/releases/download/v1.0.0/goserve_1.0.0_linux_64-bit.tar.gz -O /tmp/install/goserve.tar.gz
+RUN wget https://github.com/kevingimbel/goserve/releases/download/v"$version"/goserve_"$version"_linux_64-bit.tar.gz -O /tmp/install/goserve.tar.gz
 RUN tar -xzf /tmp/install/goserve.tar.gz -C /tmp/install/
 RUN ls -ahl /tmp/install/
 RUN chmod +x /tmp/install/goserve
