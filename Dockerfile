@@ -1,7 +1,7 @@
 FROM alpine:3.6
 LABEL maintainer="Kevin Gimbel <docker@kevin.codes>"
 
-ENV version "1.2.0"
+ENV version "1.2.1"
 
 RUN mkdir -p /var/www/
 WORKDIR /var/www
